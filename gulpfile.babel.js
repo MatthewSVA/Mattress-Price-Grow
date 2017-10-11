@@ -162,16 +162,17 @@ gulp.task('serve', ['scripts', 'styles'], () => {
     // Customize the Browsersync console logging prefix
     logPrefix: 'WSK',
     // Allow scroll syncing across breakpoints
-    scrollElementMapping: ['main', '.mdl-layout'],
+    // scrollElementMapping: ['main', '.mdl-layout'],
     // Run as an https by uncommenting 'https: true'
     // Note: this uses an unsigned certificate which on first access
     //       will present a certificate warning in the browser.
     // https: true,
     server: ['.tmp', 'app'],
+    browser: ['google chrome'],
     port: 3000
   });
 
-  gulp.watch(['app/**/*.html'], reload);
+  gulp.watch(['app/*.html'], reload);
   gulp.watch(['app/styles/**/*.{scss,css}'], ['styles', reload]);
   gulp.watch(['app/scripts/**/*.js'], ['lint', 'scripts', reload]);
   gulp.watch(['app/images/**/*'], reload);

@@ -73,4 +73,25 @@
   }
 
   // Your custom JavaScript goes here
+
+      
+      var odo = new Odometer({
+        el: $(".price").get(0),
+        // Any option (other than auto and selector) can be passed in here
+        theme: 'default',
+        format: '(,ddd).dd',
+        duration:3000,
+        // animation: 'count',
+        value:1200,
+    });
+
+    setTimeout(function() {
+      odo.update(2000)
+    }, 2000)
+    
+    setTimeout(function() {
+      odo.update(4799)
+    }, 8000)
+    
+
 })();

@@ -211,3 +211,108 @@ html, body {
 .mdl-demo .mdl-menu__container {
   z-index: 99;
 }
+
+
+
+/* brand styles listed below */
+
+.container {
+  position:relative;
+  height:100vh;
+}
+
+.animation-container {
+  position:fixed;
+  top:50%;
+  right:50%;
+  overflow:hidden;
+  transform:
+    translate(50%,-50%);
+}
+
+/* retail mattress */
+
+.ret-mattress {
+  width:398px;
+  margin:0 auto;
+  height:150px;
+  background-color:purple;
+  position:relative;
+}
+
+.price {
+  font-family:monospace;
+  width:100%;
+  text-align:center;
+  font-size:30px;
+  position:relative;
+  bottom:130px;
+  z-index:1000;
+}
+
+.odometer-inside {
+  margin-bottom:80px;
+}
+
+.price__number:after {
+  content:'$';
+  position:absolute;
+  top:30%;
+  right:100%;
+}
+
+.priceBar {
+  position:relative;
+  margin:0 auto;
+  height:300px;
+  width:398px;
+  margin-top:130px;
+  background:
+    linear-gradient(
+      to top,
+      #e54c4c 0%,
+      #870000 85%
+    );
+  transform:
+    translateY(calc(100% + 80px));
+  animation-name: grow;
+  animation-duration:3s;
+  animation-delay:2s;
+  animation-timing-function:ease-out;
+  animation-fill-mode:forwards;
+}
+
+.odometer-digit:first-child {
+  position:relative;
+} 
+
+.odometer-digit:first-child:after {
+  content:'$';
+  position:absolute;
+  top:0;
+  right:calc(100% + 5px);
+
+}
+
+.priceBar:after {
+  content:'';
+  height:0;
+  width:0;
+  position:absolute;
+  right:50%;
+  transform:
+    translate(50%,0);
+  margin:0 auto;
+  bottom:calc(100% - 1px);
+  border-top:200px solid transparent;
+  border-right:200px solid transparent;
+  border-left:200px solid transparent;
+  border-bottom:80px solid #870000;
+}
+
+/* animation declaration */
+
+@keyframes grow {
+  0% {transform:translateY(initial)}
+  100% {transform:translateY(0%)}
+}
