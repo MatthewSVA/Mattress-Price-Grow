@@ -74,24 +74,41 @@
 
   // Your custom JavaScript goes here
 
-      
-      var odo = new Odometer({
-        el: $(".price").get(0),
-        // Any option (other than auto and selector) can be passed in here
-        theme: 'default',
-        format: '(,ddd).dd',
-        duration:3000,
-        // animation: 'count',
-        value:1200,
-    });
+  var priceElement = $(".price").get(0);
 
-    setTimeout(function() {
-      odo.update(2000)
-    }, 2000)
+      
+  var odo = new Odometer({
+      el: priceElement,
+      theme: 'default',
+      format: '(,ddd).dd',
+      duration:1500,
+      // animation: 'count',
+      value:1200,
+  });
+
+  setTimeout(function() {
+
+    $('.priceBar').addClass('anim-grow-A');
+    $('.premiums-a').addClass('anim-slideUp');
+
+    setTimeout(function() {odo.update(2000);}, 700)
+  }, 2000)
+  
+  setTimeout(function() {
     
-    setTimeout(function() {
-      odo.update(4799)
-    }, 8000)
+    $('.priceBar').addClass('anim-grow-B');
+    $('.premiums-b').addClass('anim-slideUp');
+
+    setTimeout(function() {odo.update(3400);}, 700)
+  }, 6000)
+  
+  setTimeout(function() {
+    
+    $('.priceBar').addClass('anim-grow-C');
+    $('.premiums-c').addClass('anim-slideUp');
+
+    setTimeout(function() {odo.update(4799);}, 700)
+  }, 10000)
     
 
 })();

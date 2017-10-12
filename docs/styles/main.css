@@ -1,0 +1,176 @@
+/* brand styles listed below */
+
+.container {
+  position:relative;
+  height:100vh;
+}
+
+.animation-container {
+  position:fixed;
+  top:50%;
+  right:50%;
+  overflow:hidden;
+  transform:
+    translate(50%,-50%);
+}
+
+/* retail mattress */
+
+.ret-mattress {
+  width:398px;
+  margin:0 auto;
+  height:150px;
+  background-color:purple;
+  position:relative;
+}
+
+.price {
+  width:100%;
+  text-align:center;
+  font-size:30px;
+  position:relative;
+  bottom:130px;
+  z-index:1000;
+}
+
+.odometer-value {
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight:lighter;
+}
+
+.odometer-inside {
+  margin-bottom:80px;
+}
+
+.price__number:after {
+  content:'$';
+  position:absolute;
+  top:30%;
+  right:100%;
+}
+
+.priceBar {
+  position:relative;
+  margin:0 auto;
+  height:300px;
+  width:398px;
+  margin-top:130px;
+  background:
+    linear-gradient(
+      to top,
+      #e54c4c 0%,
+      #870000 85%
+    );
+  transform:
+    translateY(calc(100% + 80px));
+}
+
+.odometer-digit:first-child {
+  position:relative;
+} 
+
+.odometer-digit:first-child:after {
+  content:'$';
+  font-family:Arial, Helvetica, sans-serif;
+  position:absolute;
+  top:0;
+  right:calc(100% + 5px);
+
+}
+
+.priceBar:after {
+  content:'';
+  height:0;
+  width:0;
+  position:absolute;
+  right:50%;
+  transform:
+    translate(50%,0);
+  margin:0 auto;
+  bottom:calc(100% - 1px);
+  border-top:200px solid transparent;
+  border-right:200px solid transparent;
+  border-left:200px solid transparent;
+  border-bottom:80px solid #870000;
+}
+
+/* animations for price growing */
+
+@keyframes grow-A {
+  0% {transform:translateY(initial)}
+  100% {transform:translateY(66%)}
+}
+
+@keyframes grow-B {
+  0% {transform:translateY(66%)}
+  100% {transform:translateY(33%)}
+}
+
+@keyframes grow-C {
+  0% {transform:translateY(33%)}
+  100% {transform:translateY(0%)}
+}
+
+[class*='anim-grow'] {
+  animation-duration:1.5s;
+  animation-timing-function:cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  animation-fill-mode:both;
+}
+
+.anim-grow-A {animation-name: grow-A;}
+.anim-grow-B {animation-name: grow-B;}
+.anim-grow-C {animation-name: grow-C;}
+
+
+/* premiums bar with iconography */
+
+[class*="premiums-"] {
+  position:absolute;
+  right:0;
+  width:100%;
+  height:33%;
+  /* transform:
+    rotatex(70deg)
+    translateY(50px); */
+  opacity:0;
+  transform-origin:bottom;
+  animation-duration:1.7s;
+  animation-fill-mode:both;
+  animation-delay:0.5s;
+}
+
+[class*="premiums"]:not(:last-child) {
+  border-bottom:2px dashed rgba(255, 255, 255, 0.568);
+}
+
+[class*="premiums"]:nth-of-type(2) {top:0;}
+[class*="premiums"]:nth-of-type(3) {top:33%;}
+[class*="premiums"]:nth-of-type(4) {top:66%;}
+
+.premiums_icon {
+  height:70px;
+  width:70px;
+  background-color:green;
+  position:absolute;
+  top:50%;
+  left:10%;
+  transform:
+    translate(0,-50%);
+}
+
+.anim-slideUp {animation-name:slideUp}
+
+@keyframes slideUp {
+  0%   {
+    opacity:0;
+    transform:
+      rotatex(70deg)
+      translateY(-50px);
+      }
+  100% {
+    opacity:1;
+    transform:
+      rotatex(0deg)
+      translateY(0px);
+  }
+}
