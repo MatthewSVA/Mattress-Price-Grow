@@ -109,6 +109,47 @@
 
     setTimeout(function() {odo.update(4799);}, 700)
   }, 10000)
+  
+  setTimeout(function() {
     
+    $('.priceBar').addClass('anim-grow-D');
+    $('.premiums-d').addClass('anim-slideUp');
+
+    setTimeout(function() {odo.update(4799);}, 700)
+  }, 14000)
+    
+
+  // ========================
+  //    bar chart animation
+  // ========================
+
+  $(window).on("load resize", function() {
+
+    var barChartWidth = $('.barChart_bars').width(),
+        barChartHeight = $('.barChart_bars').height(),
+        bar = $('.barChart_bar'),
+        barSize = bar.width(),
+        barSpacingWidth = barChartWidth * 0.022361359570662;
+  
+    $(".barChart_bar").css({
+      'background-size' : barChartWidth,
+    });
+
+    // $(".barChart_bars").css({
+    //   "border-spacing" : barSpacingWidth + "px" + " " + "0px",
+    //   "right" : "-" + barSpacingWidth + "px"
+    // });
+
+    for(var i = 0; i < bar.length; i++) {
+
+      console.log($(bar[i]))
+
+      $(bar[i]).css({
+        'background-size' : "bottom," + barChartWidth + "px" + " " + barChartHeight + "px",
+        'background-position' : 'calc(' + (barSize * i) + 'px ' + (barSpacingWidth * 2 * i) + 'px'
+      })
+    }
+  })
+
 
 })();
