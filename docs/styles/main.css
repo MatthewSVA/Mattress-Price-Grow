@@ -1,3 +1,9 @@
+*{
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+}
+
 /* brand styles listed below */
 
 .HeroMattressContainer {
@@ -750,3 +756,277 @@
   .table  tr td:nth-of-type(2):after {
     left:0;
   }
+
+
+  /* ======================
+    Black Friday Ads
+  =========================*/
+
+  .large-ad {
+    display:block;
+    margin:0 auto;
+    width:300px;
+    height:600px;
+    border:1px solid black;
+    position:relative;
+    background-color:lightgrey;
+    overflow:hidden;
+    /* background-image:url("../images/ZH_optim.jpg");
+    background-size:170%;
+    background-position:0% 50%;
+    background-repeat:no-repeat; */
+
+    animation-name:panZoom;
+    animation-duration:10s;
+    animation-fill-mode:both;
+  }
+
+  @keyframes panZoom {
+    0% {
+      background-position:0% 50%;
+      background-size:360%;
+    }
+
+    /* 50% {
+      background-position:10% 50%;
+    } */
+
+    100% {
+      background-position:90% 50%;
+      background-size:260%;
+
+    }
+  }
+
+  .background-img {
+    position:absolute;
+    height:100%;
+    animation-name:backgroundPanZoom;
+    animation-duration:10s;
+    animation-fill-mode:both;
+    animation-timing-function:cubic-bezier(.77, .05, .48, .99);
+    z-index:0;
+    transform-origin:left center;
+  }
+
+  @keyframes backgroundPanZoom {
+    0% {
+      transform:
+        scale(1.70)
+        translateX(0);
+
+    }
+
+    100% {
+      transform:
+        scale(1)
+        translateX(-424px);
+
+    }
+  }
+
+  .color-overlay {
+    position:absolute;
+    z-index:50;
+    width:100%;
+    height:100%;
+    background-color:rgba(0,0,0,0.7);
+    animation-name:overlay-fadeIn;
+    animation-delay:10s;
+    animation-duration:1s;
+    animation-fill-mode:both;
+  }
+
+  @keyframes overlay-fadeIn {
+    0% {
+      opacity:0;
+    }
+
+    100% {
+      opacity:100%;
+    }
+  }
+
+  .top-ribbon {
+    box-shadow:0px 3px 8px 0px rgba(0, 0, 0, 0.3);
+    position:absolute;
+    width:180px;
+    height:50px;
+    background-color:#117d60;
+    z-index:100;
+    transform : skewY(-45deg);
+    top:-10px;
+    left:-20px;
+    animation-name:Initialribbon-slide;
+    animation-duration:2s;
+    animation-delay:1s;
+    animation-fill-mode:both;
+  }
+
+  @keyframes Initialribbon-slide {
+    0% {
+      transform: skewY(-45deg) translateX(0);
+    }
+    100% {
+      transform: skewY(-45deg) translateX(200px);
+    }
+  }
+
+
+
+  .large-ad:after,
+  .large-ad:before {
+    content:'';
+    display:block;
+    box-shadow:0px 3px 8px 0px rgba(0,0,0,0.3);
+    position:absolute;
+    width:180px;
+    height:50px;
+    background-color:#117d60;
+    z-index:100;
+    transform:
+      skewY(-45deg);
+    animation-delay:10s;
+    animation-fill-mode:both;
+    animation-duration:2s;
+  }
+
+  .large-ad:after {
+    top:-10px;
+    left:-20px;
+    animation-name:ribbonTop-slide;
+  }
+  .large-ad:before {
+    bottom:-10px;
+    right:-20px;
+    animation-name:ribbonBottom-slide;
+
+  }
+
+  .large-ad:after {
+    
+  }
+
+  @keyframes ribbonTop-slide {
+    0% {
+      transform :
+        skewY(-45deg)
+        translateX(-200px);
+    }
+
+    100% {
+      transform :
+        skewY(-45deg)
+        translateX(0);
+    }
+  }
+  
+  @keyframes ribbonBottom-slide {
+    0% {
+      transform :
+        skewY(-45deg)
+        translateX(200px);
+    }
+
+    100% {
+      transform :
+        skewY(-45deg)
+        translateX(0);
+    }
+  }
+
+  .text-box {
+    font-family: 'Open Sans', sans-serif;
+    text-align:center;
+    font-size:24px;
+    line-height:30px;
+    position:absolute;
+    width:100%;
+    top:80px;
+    color:#fff;
+    z-index:100;
+
+    animation-name: slideUpText;
+    animation-fill-mode:both;
+    animation-duration:2s;
+  }
+
+  .text-box:nth-of-type(1) {animation-delay:0s}
+  .text-box:nth-of-type(2) {animation-delay:2.5s}
+  .text-box:nth-of-type(3) {animation-delay:5s}
+  .text-box:nth-of-type(4) {animation-delay:7.5s}
+  .text-box:nth-of-type(5) {animation-delay:10s}
+  
+
+  .text-box--big {
+    width:100%;
+    font-size:36px;
+    font-weight:bold;
+  }
+
+  @keyframes slideUpText {
+    0% {
+      opacity:0;
+      transform:
+        translateY(20px)
+    }
+
+    90% {
+      opacity:1;
+      transform:
+        translateY(0);
+    }
+
+    100% {
+      opacity:0;
+      transform : translateY(-100);
+
+    }
+  }
+
+.cta-button {
+  padding:10px;
+  text-align:center;
+  position:absolute;
+  z-index:100;
+  font-size:12px;
+  bottom:30%;
+  right:50%;
+  transform:
+    translate(50%,0);
+  color:#fff;
+  background-color:#117d60;
+  display:inline-block;
+  width:120px;
+  border-radius:3px;
+  animation-name:last-fadeIn;
+
+  animation-delay:10s;
+  animation-duration:2s;
+  animation-fill-mode:both;
+
+}
+
+@keyframes last-fadeIn {
+  0% {
+    opacity:0;
+    /* transform : translate(50%, 20px); */
+  }
+
+  100% {
+    opacity:1;
+    /* transform: translate(50%,0px); */
+  }
+}
+
+.last-text-box {
+  animation-name:last-fadeIn;
+  animation-delay:10s;
+  animation-duration:2s;
+  animation-fill-mode:both;
+}
+.main-logo {
+  margin-bottom:30px;
+  margin-top:50px;
+  width:240px;
+}

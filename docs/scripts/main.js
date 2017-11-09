@@ -100,15 +100,15 @@
     $('.premiums-b').addClass('anim-slideUp');
 
     setTimeout(function() {odo.update(3400);}, 700)
-  }, 6000)
+  }, 3750)
   
   setTimeout(function() {
     
     $('.priceBar').addClass('anim-grow-C');
     $('.premiums-c').addClass('anim-slideUp');
 
-    setTimeout(function() {odo.update(4799);}, 700)
-  }, 10000)
+    setTimeout(function() {odo.update(4000);}, 700)
+  }, 5500)
   
   setTimeout(function() {
     
@@ -116,7 +116,7 @@
     $('.premiums-d').addClass('anim-slideUp');
 
     setTimeout(function() {odo.update(4799);}, 700)
-  }, 14000)
+  }, 7250)
     
 
   // ========================
