@@ -1,7 +1,7 @@
 *{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
+  box-sizing:border-box;
 }
 
 /* brand styles listed below */
@@ -762,8 +762,9 @@
     Black Friday Ads
   =========================*/
 
-  .large-ad {
-    display:block;
+
+  .ad {
+    display:inline-block;
     margin:0 auto;
     width:300px;
     height:600px;
@@ -798,29 +799,98 @@
     }
   }
 
+  /* ad sizes */
+
+  .med {
+    width: 300px;
+    height: 250px;
+  }
+
+  .med-l {
+    width:336px;
+    height:280px;
+  }
+
+  .sky {
+    width:160px;
+    height:600px;
+  }
+
+
   .background-img {
     position:absolute;
     height:100%;
     animation-name:backgroundPanZoom;
-    animation-duration:10s;
+    animation-duration:7.5s;
     animation-fill-mode:both;
-    animation-timing-function:cubic-bezier(.77, .05, .48, .99);
+    animation-timing-function:cubic-bezier(.47, .11, .3, .93);
     z-index:0;
     transform-origin:left center;
   }
 
+  .loom .background-img {
+    animation-name:loomBackgroundPan;
+  }
+
+  .saatva .background-img {
+    animation-name:saatvaBackgroundPan;
+  }
+
+  /* ad sizes */
+
+  .med .background-img {
+    animation-name:none;
+    background-position:center;
+    height:auto !important;
+    width: 100% !important;
+  }
+
+  .sky .background-img {
+    width: auto !important;
+    height: 100% !important;
+  }
+
+
   @keyframes backgroundPanZoom {
     0% {
       transform:
-        scale(1.70)
+        /* scale(1.70) */
         translateX(0);
 
     }
 
     100% {
       transform:
-        scale(1)
-        translateX(-424px);
+        /* scale(1) */
+        translateX(-233px);
+
+
+    }
+  }
+  
+  @keyframes loomBackgroundPan {
+    0% {
+      transform:
+        translateX(0);
+
+    }
+
+    100% {
+      transform:
+        translateX(-232px);
+    }
+  }
+  
+  @keyframes saatvaBackgroundPan {
+    0% {
+      transform:
+        translateX(0);
+
+    }
+
+    100% {
+      transform:
+        translateX(-232px);
 
     }
   }
@@ -832,8 +902,8 @@
     height:100%;
     background-color:rgba(0,0,0,0.7);
     animation-name:overlay-fadeIn;
-    animation-delay:10s;
-    animation-duration:1s;
+    animation-delay:8.75s;
+    animation-duration:1.25s;
     animation-fill-mode:both;
   }
 
@@ -856,11 +926,23 @@
     z-index:100;
     transform : skewY(-45deg);
     top:-10px;
-    left:-20px;
+    left:-30px;
     animation-name:Initialribbon-slide;
     animation-duration:2s;
     animation-delay:1s;
     animation-fill-mode:both;
+  }
+
+  .med .top-ribbon {
+    left:-50px;
+  }
+
+  .loom .top-ribbon {
+    background-color:#ee3f58;
+  }
+
+  .saatva .top-ribbon {
+    background-color:#e0462a;
   }
 
   @keyframes Initialribbon-slide {
@@ -874,8 +956,8 @@
 
 
 
-  .large-ad:after,
-  .large-ad:before {
+  .ad:after,
+  .ad:before {
     content:'';
     display:block;
     box-shadow:0px 3px 8px 0px rgba(0,0,0,0.3);
@@ -886,25 +968,44 @@
     z-index:100;
     transform:
       skewY(-45deg);
-    animation-delay:10s;
-    animation-fill-mode:both;
-    animation-duration:2s;
-  }
-
-  .large-ad:after {
-    top:-10px;
-    left:-20px;
-    animation-name:ribbonTop-slide;
-  }
-  .large-ad:before {
-    bottom:-10px;
-    right:-20px;
-    animation-name:ribbonBottom-slide;
-
-  }
-
-  .large-ad:after {
     
+    animation-fill-mode:both;
+    animation-duration:1s;
+  }
+
+  .loom.ad:after,
+  .loom.ad:before {
+    background-color:#ee3f58;
+  }
+  
+  .saatva.ad:after,
+  .saatva.ad:before {
+    background-color:#e0462a;
+  }
+
+
+  .ad:after {
+    top:-10px;
+    left:-30px;
+    animation-name:ribbonTop-slide;
+    animation-delay:9.25s;
+  }
+
+  
+  .ad:before {
+    bottom:-10px;
+    right:-30px;
+    animation-name:ribbonBottom-slide;
+    animation-delay:7.5s;
+    
+  }
+  
+  .med.ad:after {
+    left:-50px;
+  }
+
+  .med.ad:before {
+    right:-50px;
   }
 
   @keyframes ribbonTop-slide {
@@ -937,12 +1038,14 @@
 
   .text-box {
     font-family: 'Open Sans', sans-serif;
+    /* letter-spacing:1px; */
     text-align:center;
-    font-size:24px;
+    font-size:22px;
+    font-weight:600;
     line-height:30px;
     position:absolute;
     width:100%;
-    top:80px;
+    top:140px;
     color:#fff;
     z-index:100;
 
@@ -951,17 +1054,63 @@
     animation-duration:2s;
   }
 
+  /* size differences */
+
+  .med .text-box {
+    font-size:16px;
+    top:50%;
+    line-height:22px;
+    transform:translateY(-50%);
+    animation-name:slideUpTextMed;
+  }
+
+  .sky .text-box {
+    top:25%;
+    font-size:18px;
+    line-height:25px;
+  }
+
+
+  /* brand colors */
+
+  .loom .text-box {
+    color:#3b3b3b;
+  }
+  .saatva .text-box {
+    color:#58585a;
+  }
+
   .text-box:nth-of-type(1) {animation-delay:0s}
-  .text-box:nth-of-type(2) {animation-delay:2.5s}
-  .text-box:nth-of-type(3) {animation-delay:5s}
-  .text-box:nth-of-type(4) {animation-delay:7.5s}
-  .text-box:nth-of-type(5) {animation-delay:10s}
+  .text-box:nth-of-type(2) {animation-delay:2.3s}
+  .text-box:nth-of-type(3) {animation-delay:4.6s}
+  .text-box:nth-of-type(4) {animation-delay:6.9s}
+  .text-box:nth-of-type(5) {animation-delay:9.2s}
   
 
   .text-box--big {
     width:100%;
     font-size:36px;
-    font-weight:bold;
+    display:inline-block;
+    margin-top:8px;
+    font-weight:800;
+    text-transform:uppercase;
+  }
+
+  .med .text-box--big {
+    font-size:29px;
+  }
+
+  .loom .text-box--big {
+    color:#ee3f58;
+  }
+
+  .sky .text-box--big {
+    margin-top:0px;
+    line-height:30px;
+  }
+  
+  .saatva .text-box--big {
+    color:black;
   }
 
   @keyframes slideUpText {
@@ -979,13 +1128,32 @@
 
     100% {
       opacity:0;
-      transform : translateY(-100);
+    }
+  }
+  
+  @keyframes slideUpTextMed {
+    0% {
+      opacity:0;
+      transform:
+        translateY(calc(-50% + 20px))
+    }
 
+    90% {
+      opacity:1;
+      transform : translateY(calc(-50% + 0px))
+
+    }
+
+    100% {
+      opacity:0;
     }
   }
 
 .cta-button {
   padding:10px;
+  letter-spacing:1px;
+  font-weight:600;
+  font-family: 'Open Sans', sans-serif;
   text-align:center;
   position:absolute;
   z-index:100;
@@ -1001,11 +1169,98 @@
   border-radius:3px;
   animation-name:last-fadeIn;
 
-  animation-delay:10s;
+  animation-delay:7.5s;
   animation-duration:2s;
   animation-fill-mode:both;
 
 }
+
+/* as sizes */
+
+.med .cta-button {
+  bottom:10%;
+  padding:7px;
+  font-size:11px;
+}
+
+.sky .cta-button {
+  bottom:35%;
+}
+
+.loom .cta-button {
+  background-color:#ee3f58;
+}
+.saatva .cta-button {
+  background-color:#e0462a;
+}
+
+
+.last-text-box {
+  top:80px;
+  animation-name:last-fadeIn !important;
+  animation-delay:9.25s !important;
+  animation-duration:2s;
+  animation-fill-mode:both;
+}
+
+/* ad sizes */
+
+.med .last-text-box {
+  top:100px; 
+}
+
+.med.saatva .last-text-box {
+  top:90px;
+}
+
+.med-l .last-text-box {
+  top:110px;
+}
+
+.med-l.saatva .last-text-box {
+  top: 100px;
+}
+
+
+.sky .last-text-box {
+  top:210px;
+}
+
+.sky.saatva .last-text-box {
+  top: 200px;
+}
+
+.loom .last-text-box,
+.saatva .last-text-box {
+  color:#fff;
+}
+
+.main-logo {
+  width:240px;
+  display:block;
+  margin:0 auto;
+}
+
+.med .main-logo {
+  /* margin-bottom:35px; */
+}
+
+.sky .main-logo {
+  margin-bottom:20px;
+}
+
+/* logo sizes */
+
+.saatva .main-logo {width:140px;}
+.loom .main-logo {width:190px;}
+
+.med.saatva .main-logo {width:100px;}
+.med.loom .main-logo {width:150px;}
+.med.zen .main-logo {width:170px;}
+
+.sky.saatva .main-logo {width:90px;}
+.sky.loom .main-logo {width:130px;}
+.sky.zen .main-logo {width:140px;}
 
 @keyframes last-fadeIn {
   0% {
@@ -1017,16 +1272,4 @@
     opacity:1;
     /* transform: translate(50%,0px); */
   }
-}
-
-.last-text-box {
-  animation-name:last-fadeIn;
-  animation-delay:10s;
-  animation-duration:2s;
-  animation-fill-mode:both;
-}
-.main-logo {
-  margin-bottom:30px;
-  margin-top:50px;
-  width:240px;
 }
