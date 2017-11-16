@@ -770,7 +770,7 @@
     height:600px;
     border:1px solid black;
     position:relative;
-    background-color:lightgrey;
+    background-color:#fff;
     overflow:hidden;
     /* background-image:url("../images/ZH_optim.jpg");
     background-size:170%;
@@ -782,22 +782,6 @@
     animation-fill-mode:both;
   }
 
-  @keyframes panZoom {
-    0% {
-      background-position:0% 50%;
-      background-size:360%;
-    }
-
-    /* 50% {
-      background-position:10% 50%;
-    } */
-
-    100% {
-      background-position:90% 50%;
-      background-size:260%;
-
-    }
-  }
 
   /* ad sizes */
 
@@ -816,11 +800,31 @@
     height:600px;
   }
 
+  .banner {
+    width:728px;
+    height:90px;
+  }
+
+  .small {
+    width:320px;
+    height:50px;
+  }
+
+  .banner-l {
+    width:320px;
+    height:100px;
+  }
+
+  .big {
+    width:970px;
+    height:250px;
+  }
+
 
   .background-img {
     position:absolute;
     height:100%;
-    animation-name:backgroundPanZoom;
+    animation-name:BackgroundPan;
     animation-duration:7.5s;
     animation-fill-mode:both;
     animation-timing-function:cubic-bezier(.47, .11, .3, .93);
@@ -828,51 +832,106 @@
     transform-origin:left center;
   }
 
-  .loom .background-img {
-    animation-name:loomBackgroundPan;
-  }
-
-  .saatva .background-img {
-    animation-name:saatvaBackgroundPan;
-  }
-
   /* ad sizes */
 
   .med .background-img {
-    animation-name:none;
+    animation-name:BackgroundPanMed;
     background-position:center;
-    height:auto !important;
-    width: 100% !important;
+    height:100% !important;
+    width:auto !important;
   }
-
+  .med-l .background-img {
+    animation-name:BackgroundPanMed-l;
+  }
+  
   .sky .background-img {
-    width: auto !important;
-    height: 100% !important;
+    animation-name:BackgroundPanSky;
   }
 
+  .banner .background-img {
+    animation-name:none;
+  }
 
-  @keyframes backgroundPanZoom {
-    0% {
-      transform:
-        /* scale(1.70) */
-        translateX(0);
+  .banner_sect {
+    overflow:hidden;
+    position:relative;
+    float:left;
+    width:50%;
+    height:100%;
+  }
 
-    }
-
-    100% {
-      transform:
-        /* scale(1) */
-        translateX(-233px);
-
-
-    }
+  .zen .banner_sect:nth-of-type(1) {
+    background-image:url('/images/90Z_optim.jpg');
+    background-size:cover;
+    background-position:center;
+    height:100%;
+  }
+  .loom .banner_sect:nth-of-type(1) {
+    background-image:url('/images/90L_optim.jpg');
+    background-size:cover;
+    background-position:center;
+    height:100%;
+  }
+  .saatva .banner_sect:nth-of-type(1) {
+    background-image:url('/images/90S_optim.jpg');
+    background-size:cover;
+    background-position:center;
+    height:100%;
   }
   
-  @keyframes loomBackgroundPan {
+  .banner-l.zen .banner_sect:nth-of-type(1) {
+    background-image:url('/images/100Z_optim.jpg');
+
+    background-size:cover;
+    background-position:center;
+    height:100%;
+  }
+  
+  .banner-l.loom .banner_sect:nth-of-type(1) {
+    background-image:url('/images/100L_optim.jpg');
+
+    background-size:cover;
+    background-position:center;
+    height:100%;
+  }
+  
+  .banner-l.saatva .banner_sect:nth-of-type(1) {
+    background-image:url('/images/100S_optim.jpg');
+
+    background-size:cover;
+    background-position:center;
+    height:100%;
+  }
+  
+  .big.zen .banner_sect:nth-of-type(1) {
+    background-image:url('/images/250Z_optim.jpg');
+
+    background-size:cover;
+    background-position:center;
+    height:100%;
+  }
+  
+  .big.loom .banner_sect:nth-of-type(1) {
+    background-image:url('/images/250L_optim.jpg');
+
+    background-size:cover;
+    background-position:center;
+    height:100%;
+  }
+  
+  .big.saatva .banner_sect:nth-of-type(1) {
+    background-image:url('/images/250S_optim.jpg');
+
+    background-size:cover;
+    background-position:center;
+    height:100%;
+  }
+
+
+  @keyframes BackgroundPan {
     0% {
       transform:
         translateX(0);
-
     }
 
     100% {
@@ -881,16 +940,40 @@
     }
   }
   
-  @keyframes saatvaBackgroundPan {
+  @keyframes BackgroundPanMed {
     0% {
       transform:
         translateX(0);
-
     }
 
     100% {
       transform:
-        translateX(-232px);
+        translateX(-125px);
+    }
+  }
+  
+  @keyframes BackgroundPanMed-l {
+    0% {
+      transform:
+        translateX(0);
+    }
+
+    100% {
+      transform:
+        translateX(-140px);
+
+    }
+  }
+
+  @keyframes BackgroundPanSky {
+    0% {
+      transform:
+        translateX(0);
+    }
+
+    100% {
+      transform:
+        translateX(-139px);
 
     }
   }
@@ -907,6 +990,17 @@
     animation-fill-mode:both;
   }
 
+  .banner .color-overlay {
+
+    background:
+      linear-gradient(
+                    to right,
+                    rgba(0,0,0,0.7) 0%,
+                    rgba(0, 0, 0, 0.7) 50%,
+                    rgba(0, 0, 0, 0.9) 50%,
+                    rgba(0, 0, 0, 0.9) 100%);
+  }
+
   @keyframes overlay-fadeIn {
     0% {
       opacity:0;
@@ -915,6 +1009,11 @@
     100% {
       opacity:100%;
     }
+  }
+
+  .small .color-overlay {
+    display:none !important;
+    left:-65px;
   }
 
   .top-ribbon {
@@ -935,6 +1034,24 @@
 
   .med .top-ribbon {
     left:-50px;
+  }
+
+  .banner .top-ribbon {
+    height:35px;
+  }
+
+  .small .top-ribbon {
+    height:20px;
+    left:-60px;
+  }
+
+  .banner-l .top-ribbon {
+    height:20px;
+  }
+
+  .big .top-ribbon {
+    height:80px;
+    left:-5px;
   }
 
   .loom .top-ribbon {
@@ -973,6 +1090,12 @@
     animation-duration:1s;
   }
 
+  .banner.ad:after,
+  .banner.ad:before { 
+    height:30px;
+  }
+
+
   .loom.ad:after,
   .loom.ad:before {
     background-color:#ee3f58;
@@ -1004,8 +1127,48 @@
     left:-50px;
   }
 
+  
   .med.ad:before {
     right:-50px;
+  }
+  
+  .small.ad:after,
+  .banner-l.ad:after, {
+    
+    height:20px;
+    left:-65px;
+  }
+  
+  .banner-l.ad:before {
+    height:20px;
+    right:-65px;
+  }
+  
+  .big.ad:before {
+    right:-5px;
+  }
+  
+  .big.ad:after {
+    left:-5px;
+  }
+
+  .big.ad:after,
+  .big.ad:before {
+    height: 80px;
+  }
+
+
+  .small.ad:before {
+    transform:none;
+    animation-name:none !important;
+    height:100%;
+    bottom:0;
+    right:0;
+    width:35px;
+    background-image:url("../images/arrow.png");
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:40%;
   }
 
   @keyframes ribbonTop-slide {
@@ -1045,7 +1208,7 @@
     line-height:30px;
     position:absolute;
     width:100%;
-    top:140px;
+    top:100px;
     color:#fff;
     z-index:100;
 
@@ -1058,7 +1221,7 @@
 
   .med .text-box {
     font-size:16px;
-    top:50%;
+    top:25%;
     line-height:22px;
     transform:translateY(-50%);
     animation-name:slideUpTextMed;
@@ -1068,6 +1231,29 @@
     top:25%;
     font-size:18px;
     line-height:25px;
+  }
+
+  .banner .text-box {
+    color:black;
+    top:50%;
+    z-index:10000;
+  }
+
+  .small .text-box {
+    color:black !important;
+    font-size:14px;
+    top:50%;
+    width:calc(100% - 35px);
+    line-height:18px;
+  }
+
+  .banner-l .text-box {
+    font-size:14px;
+  }
+
+  .big .text-box {
+    font-size:20px;
+    line-height:30px;
   }
 
 
@@ -1104,10 +1290,52 @@
     color:#ee3f58;
   }
 
+
+
   .sky .text-box--big {
     margin-top:0px;
     line-height:30px;
   }
+
+  .banner .text-box--big {
+    display:inline;
+    font-size:25px;
+    margin-top:0;
+  }
+
+  .banner-l .text-box--big {
+    display:block;
+    margin: -3px 0px 0px 0px;
+    line-height: 24px;
+  }
+
+  .big .text-box--big {
+    line-height:initial;
+    font-size:36px;
+  }
+
+  .small .text-box--big {
+    display:inline;
+    font-size:16px;
+  }
+
+  .small.zen .text-box--big {
+    color:#117d60;
+  }
+  
+  .small.saatva .text-box--big {
+    color:#e0462a;
+  }
+
+   .loom .text-box--big {
+     color: #ee3f58;
+   }
+
+
+  .banner.zen .text-box--big {color:#117d60;}
+  .banner.loom .text-box--big {color: #ee3f58;}
+  .banner.saatva .text-box--big {color: #ee3f58;}
+
   
   .saatva .text-box--big {
     color:black;
@@ -1187,11 +1415,41 @@
   bottom:35%;
 }
 
+.banner .cta-button {
+  bottom:auto;
+  right:15%;
+  top:50%;
+  transform:
+    translatey(-50%);
+}
+
+.banner-l .cta-button {
+  font-size:10px;
+}
+
+
 .loom .cta-button {
   background-color:#ee3f58;
 }
 .saatva .cta-button {
   background-color:#e0462a;
+}
+
+.small .cta-button {
+  display:none;
+}
+
+.banner-l .cta-button {
+  position:initial;
+  transform:none;
+  padding:2px 7px;
+}
+
+
+.big .cta-button {
+  font-size:14px;
+  padding:10px 5px;
+  width:150px;
 }
 
 
@@ -1230,6 +1488,74 @@
   top: 200px;
 }
 
+.banner .last-text-box {
+  top:50% !important;
+  height:100%;
+  overflow:hidden;
+}
+
+.small .last-text-box {
+  top:50% !important;
+}
+
+.banner .last-text-box__sect {
+  position:relative;
+  width:50%;
+  height:100%;
+  float:right;
+  color:#fff;
+  z-index:-100;
+}
+
+.banner .last-text-box__sect:last-child {
+  position:absolute;
+  right:0;
+  width:100%;
+  height:100%;
+}
+
+.banner-l .last-text-box__sect:last-child {
+  top:50%;
+  transform:translatey(-50%);
+  height:auto !important;
+}
+
+.banner .last-text-box__inner {
+  overflow:hidden;
+  position:absolute;
+  top:50%;
+  left:40%;
+  transform:
+    translateY(-50%);
+  height:100%;
+  text-align:center;
+}
+
+.banner .last-text-box__inner.center {
+  height:auto;
+}
+
+.small .last-text-box__inner {
+  float:right;
+  width:50%;
+  font-size:12px;
+}
+
+.banner-l .last-text-box__inner {
+  position:initial;
+  transform:none;
+  display:block;
+  font-size:12px;
+  margin:3px 0;
+}
+
+
+.big .last-text-box__inner {
+  font-size:27px;
+  margin:20px 0;
+  line-height:initial;
+}
+
 .loom .last-text-box,
 .saatva .last-text-box {
   color:#fff;
@@ -1241,13 +1567,39 @@
   margin:0 auto;
 }
 
-.med .main-logo {
-  /* margin-bottom:35px; */
-}
-
 .sky .main-logo {
   margin-bottom:20px;
 }
+
+.banner .main-logo {
+  position:absolute;
+  top:49%;
+  left:15%;
+  transform:
+    translatey(-50%)
+}
+
+.banner.saatva .main-logo {
+  left:20%;
+}
+
+.small .main-logo {
+  position:absolute;
+  top:50%;
+  left:33px;
+  transform:
+    translateY(-50%);
+}
+
+.small.saatva .main-logo {
+  left:56px;
+}
+
+.banner-l .main-logo {
+  position:initial;
+  transform:none;
+}
+
 
 /* logo sizes */
 
@@ -1262,6 +1614,33 @@
 .sky.loom .main-logo {width:130px;}
 .sky.zen .main-logo {width:140px;}
 
+.banner.zen .main-logo {width:155px;}
+.banner.saatva .main-logo {width:80px;}
+
+.small.zen .main-logo {width:105px;}
+.small.loom .main-logo {width:105px;}
+.small.saatva .main-logo {width:55px;}
+
+.banner-l.zen .main-logo {
+  width:110px;
+}
+.banner-l.loom .main-logo {
+  width:110px;
+}
+
+.big.zen .main-logo {
+  width:230px;
+}
+
+.big.loom .main-logo {
+  width:180px;
+}
+
+.big.saatva .main-logo {
+  width:110px;
+}
+
+/* .banner-l.zen .main-logo {width} */
 @keyframes last-fadeIn {
   0% {
     opacity:0;
