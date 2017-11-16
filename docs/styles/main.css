@@ -1342,11 +1342,12 @@
 
   .banner.zen .text-box--big {color:#117d60;}
   .banner.loom .text-box--big {color: #ee3f58;}
-  .banner.saatva .text-box--big {color: #ee3f58;}
+  .banner.saatva .text-box--big {color: #e0462a;}
+
 
   
   .saatva .text-box--big {
-    color:black;
+    color:#e0462a;
   }
 
   @keyframes slideUpText {
