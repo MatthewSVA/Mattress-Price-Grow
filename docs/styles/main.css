@@ -1077,7 +1077,7 @@
   .ad:before {
     content:'';
     display:block;
-    box-shadow:0px 3px 8px 0px rgba(0,0,0,0.3);
+    box-shadow:0 3px 5px 0 rgba(0, 0, 0, .3);
     position:absolute;
     width:180px;
     height:50px;
@@ -1092,7 +1092,7 @@
 
   .banner.ad:after,
   .banner.ad:before { 
-    height:30px;
+    height:40px;
   }
 
 
@@ -1124,32 +1124,40 @@
   }
   
   .med.ad:after {
-    left:-50px;
+    left:-51px;
+  }
+  
+  .med.ad:before {
+    right:-51px;
+
+  }
+
+  .mobile-sm.ad:after {
+    height:20px;
+    left:-61px;
   }
 
   
-  .med.ad:before {
-    right:-50px;
-  }
-  
-  .small.ad:after,
+  .banner-l.ad:before,
   .banner-l.ad:after, {
     
     height:20px;
-    left:-65px;
+  }
+  
+  .banner-l.ad:after {
+    left:-60px !important;
   }
   
   .banner-l.ad:before {
-    height:20px;
-    right:-65px;
+    right:-60px !important;
   }
   
   .big.ad:before {
-    right:-5px;
+    right:-5px !important;
   }
   
   .big.ad:after {
-    left:-5px;
+    left:-5px !important;
   }
 
   .big.ad:after,
@@ -1454,7 +1462,7 @@
 
 
 .last-text-box {
-  top:80px;
+  top:100px;
   animation-name:last-fadeIn !important;
   animation-delay:9.25s !important;
   animation-duration:2s;
@@ -1529,6 +1537,11 @@
     translateY(-50%);
   height:100%;
   text-align:center;
+}
+
+.banner.zen .last-text-box__inner {
+  top:50%;
+  left:42%;
 }
 
 .banner .last-text-box__inner.center {
@@ -1615,10 +1628,10 @@
 .sky.zen .main-logo {width:140px;}
 
 .banner.zen .main-logo {width:155px;}
-.banner.saatva .main-logo {width:80px;}
+.banner.saatva .main-logo {width:55px;}
 
 .small.zen .main-logo {width:105px;}
-.small.loom .main-logo {width:105px;}
+.small.loom .main-logo {width:99px;}
 .small.saatva .main-logo {width:55px;}
 
 .banner-l.zen .main-logo {
